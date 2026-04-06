@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For You ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">It's your day! yeayy 🩷</div>
+  
+     <!-- MUSIC -->
+  <audio id="bgMusic" loop>
+    <source src="assets/thoseeyes.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="music-btn" onclick="toggleMusic()">🎵</button>
+
+  </header>
+  
+<!-- POPUP -->
+<div id="popup">
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="assets/bg.mp4" type="video/mp4">
+  </video>
+
+  <div class="overlay"></div>
+
+  <div class="popup-box">
+    <h1>🎮 Level Up 25!</h1>
+    <p>Ready for your special day? 💖</p>
+    <button onclick="startApp()">Start</button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div id="mainContent" class="hidden">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-card">
+      <h1>Happy Level Up Day! 💖</h1>
+      <h3>To My Special Someone Lauvyne (My dearest Ariel)</h3>
+      <h7>16 April 2026</h7>
+      <p>Wishing you a day filled with love 💖</p>
+      <button onclick="scrollNext()">Scroll Down ↓</button>
+    </div>
+  </section>
+
+  <!-- MOMENT -->
+  <section id="nextSection" class="section">
+    <div class="moment-container">
+
+      <div class="moment-img reveal-left">
+        <img src="assets/photo4.jpeg" alt="Our Memories">
+      </div>
+
+      <div class="moment-text reveal-right">
+        <h2>Throw Back Memories 💖</h2>
+        <p id="typeText"></p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="gallery">
+    <h2>All of your photos are my favorites, but I'll pick 3 :D 📸</h2>
+  
+    <div class="gallery-container">
+  
+      <div class="gallery-item reveal-left">
+        <img src="assets/fav1.jpeg">
+        <div class="overlay-text">An aesthetic silhouette like yours</div>
+      </div>
+  
+      <div class="gallery-item reveal-right">
+        <img src="assets/fav2.jpeg">
+        <div class="overlay-text">He's totally boyfriend material and really cool 🔥</div>
+      </div>
+  
+      <div class="gallery-item reveal-left">
+        <img src="assets/fav3.jpeg">
+        <div class="overlay-text">Just look at his charming smile- I'm melting 🥰</div>
+      </div>
+  
+    </div>
+    <h3>Every photo of you is a treasure to me, but these three hold a special place in my heart. Send me more photos of you, hehe—don't forget to smile darl</h3>
+  </section>
+
+  <section class="love">
+    <h2>What I Love About You 💖</h2>
+  
+    <div class="love-container">
+  
+      <div class="love-item reveal-left">
+        <p>The way you called me “Gyukk” for the first time… and now call me “Sayangg”</p>
+      </div>
+  
+      <div class="love-item reveal-right">
+        <p>The way you care about the people around you—especially me 🤍</p>
+      </div>
+  
+      <div class="love-item reveal-left">
+        <p>Your voice… I could listen to it forever. It's as soothing as a lullaby 🎧</p>
+      </div>
+  
+      <div class="love-item reveal-right">
+        <p>And most of all… just you being you 💖</p>
+      </div>
+  
+      <p style="text-align: center;">Thank You, God, and thank you, Kazehara—
+        for crossing our paths and letting me find someone as special and captivating as you.</p>
+    </div>
+  </section>
+
+  <section class="wish">
+    <div class="wish-container reveal">
+      
+      <h2>My Wish For You 💖</h2>
+      
+      <p class="wish-text">
+        I may not always be there with you,  
+        but my prayers will always find their way to you.
+  
+        I pray that your days are filled with happiness,  
+        your heart with peace, and your life with endless blessings.
+  
+        May you always be surrounded by love,  
+        and may all your dreams slowly come true.
+  
+        And no matter where life takes us…  
+        I will always wish the best for you.
+  
+        Happy birthday, darl🤍. 
+      </p>
+  
+    </div>
+  </section>
+
+  <!-- FINAL WISH SECTION -->
+<section class="final-wish">
+  <h2>Make A Wish 💌</h2>
+  <button onclick="openWish()">Write a Wish</button>
+
+   <!-- AUDIO MESSAGE -->
+   <div class="voice-note">
+    <p>🎧 A little message for you 🤍 ...</p>
+    <button onclick="toggleVoice()">▶ Play Voice</button>
+
+    <audio id="voiceAudio">
+      <source src="assets/foryou.aac" type="audio/mpeg">
+    </audio>
+  </div>
+
+</section>
+
+<!-- POPUP FORM -->
+<div id="wishPopup" class="popup-wish hidden">
+  <div class="popup-content">
+    <h3>Your Wish 💖</h3>
+    <textarea id="wishInput" placeholder="Write your wish here..."></textarea>
+    <button onclick="submitWish()">Send 💌</button>
+    <button onclick="closeWish()">Close</button>
+  </div>
+</div>
+
+<!-- RESULT POPUP -->
+<div id="resultPopup" class="popup-wish hidden">
+  <div class="popup-content">
+    <h3>✨ Your Wish ✨</h3>
+    <p id="wishResult"></p>
+    <p class="blessing">May your dreams slowly come true, darl💖</p>
+    <button onclick="closeResult()">Close</button>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>Made with 🩷 by bamGiyuuuu/putrii.alf</p>
+  <p>For someone special (Ariel my one and only) ✨</p>
+</footer>
+
+</div>
+
+<script>
+/* START APP */
+function startApp() {
+  document.getElementById("popup").style.display = "none";
+  document.getElementById("mainContent").classList.remove("hidden");
+
+  document.getElementById("bgMusic").play();
+
+  revealOnScroll(); // 🔥 FIX UTAMA
+}
+
+window.addEventListener("scroll", () => {
+  const header = document.querySelector(".header");
+
+  if (window.scrollY > 50) {
+    header.style.background = "rgba(0,0,0,0.6)";
+  } else {
+    header.style.background = "rgba(0,0,0,0.3)";
+  }
+});
+
+/* SCROLL */
+function scrollNext() {
+  document.getElementById("nextSection").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+/* MUSIC */
+function toggleMusic() {
+  const music = document.getElementById("bgMusic");
+  music.paused ? music.play() : music.pause();
+}
+
+/* REVEAL */
+function revealOnScroll() {
+  const elements = document.querySelectorAll(
+  ".reveal, .reveal-left, .reveal-right, .fade-up"
+);
+
+  elements.forEach(el => {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+
+    if (elementTop < windowHeight - 100) {
+      el.classList.add("show");
+      startTyping();
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll); // 🔥 tambahan penting
+
+/* TYPEWRITER */
+const text = `It was a moment I never could have imagined back when I was developing Kazehara map on Roblox. One late night, you came with your friends to play on my map—and that's where everything began.
+
+One thing I'll never regret is meeting you and becoming friends. I never expected that we would grow from friends into something more, into lovers. Meeting you truly felt like a miracle.
+
+Thank you for being in my life, darl. You're such a kind and genuine person, and you deserve all the good things this world has to offer. I'll always pray for your success, your health, and your happiness. 💖`;
+
+let i = 0;
+let started = false;
+
+function startTyping() {
+  if (started) return;
+  started = true;
+  typeWriter();
+}
+
+function typeWriter() {
+  if (i < text.length) {
+    document.getElementById("typeText").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 40);
+  }
+}
+
+function openWish() {
+  document.getElementById("wishPopup").classList.remove("hidden");
+}
+
+function closeWish() {
+  document.getElementById("wishPopup").classList.add("hidden");
+}
+
+function submitWish() {
+  const wish = document.getElementById("wishInput").value;
+
+  if (wish.trim() === "") {
+    alert("Isi dulu wish-nya ya 💖");
+    return;
+  }
+
+  document.getElementById("wishResult").innerText = wish;
+
+  closeWish();
+  document.getElementById("resultPopup").classList.remove("hidden");
+}
+
+function closeResult() {
+  document.getElementById("resultPopup").classList.add("hidden");
+}
+
+const voice = document.getElementById("voiceAudio");
+
+  function toggleVoice() {
+    if (voice.paused) {
+      voice.play();
+      event.target.innerText = "⏸ Pause Voice";
+    } else {
+      voice.pause();
+      event.target.innerText = "▶ Play Voice";
+    }
+  }
+</script>
+
+</body>
+</html>
